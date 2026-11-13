@@ -1,0 +1,5 @@
+Ссылка на репозиторий:
+https://github.com/ProJabka/pc-remote
+
+Если репозиторий ещё не создан, создайте его на GitHub с именем:
+pc-remote

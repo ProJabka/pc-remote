@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PC Remote</string>
+    <string name="file_count">ФАЙЛЫ · %1$d</string>
+    <string name="transfer_progress">%1$s / %2$s</string>
+</resources>
