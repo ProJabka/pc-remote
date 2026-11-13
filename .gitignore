@@ -7,8 +7,7 @@ android/local.properties
 server/.state/
 shared/*
 !shared/РџСЂРёРјРµСЂ.txt
-dist/*
-!dist/PC-Remote.apk
+dist/
 tools/android-studio.zip
 tools/studio.zip
 tools/studio-page.html
