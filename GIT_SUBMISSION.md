@@ -23,21 +23,5 @@ git remote add origin https://github.com/ProJabka/pc-remote.git
 git push -u origin main
 ```
 
-Затем:
-
-1. Повторно запустите генерацию презентации:
-
-```powershell
-.\tools\python\python.exe .\docs\create_presentation.py
-```
-
-2. Загрузите обновлённую презентацию:
-
-```powershell
-git add Презентация_PC_Remote.pptx docs/create_presentation.py
-git commit -m "Add repository link to presentation"
-git push
-```
-
 В репозиторий **не нужно** добавлять папку `tools/`, временные логи,
 эмулятор и файлы Gradle-сборки — они исключены `.gitignore`.

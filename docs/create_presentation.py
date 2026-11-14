@@ -12,7 +12,7 @@ SCREEN_CONNECTION = ROOT / "docs" / "android-connection.png"
 SCREEN_FILES = ROOT / "docs" / "android-files.png"
 SCREEN_TRANSFER = ROOT / "docs" / "android-transfer.png"
 
-# Replace this value after creating the remote GitHub/GitLab repository.
+# Published project repository.
 GIT_URL = "https://github.com/ProJabka/pc-remote"
 
 NAVY = RGBColor(25, 36, 59)
@@ -136,8 +136,7 @@ def create():
     base(slide, 1, "Файлы компьютера в телефоне", "PC Remote — защищённый доступ к выбранной папке ПК", dark=True)
     rounded(slide, 0.60, 3.25, 5.45, 2.55, RGBColor(35, 49, 81))
     add_text(slide, "Android-приложение + HTTPS-сервер для Windows", 0.92, 3.62, 4.75, 0.48, 19, WHITE, True)
-    add_text(slide, "Курсовой / учебный проект", 0.92, 4.27, 4.7, 0.3, 13, RGBColor(198, 208, 234))
-    add_text(slide, "Автор: ____________________\nГруппа: ____________________", 0.92, 4.83, 4.6, 0.68, 13, RGBColor(198, 208, 234))
+    add_text(slide, "Автор: ProJabka", 0.92, 4.27, 4.7, 0.3, 13, RGBColor(198, 208, 234))
     # simplified device illustration
     rounded(slide, 8.15, 2.42, 3.35, 2.25, WHITE)
     rounded(slide, 8.46, 2.73, 2.73, 1.55, BLUE_LIGHT)
@@ -292,9 +291,9 @@ def create():
 
     # 10 — git / hand-in
     slide = prs.slides.add_slide(blank)
-    base(slide, 10, "Исходный код и APK", "Файлы для сдачи находятся в папке проекта")
+    base(slide, 10, "Исходный код и APK", "Открытый репозиторий проекта PC Remote")
     rounded(slide, 0.75, 2.10, 7.35, 3.75, NAVY)
-    add_text(slide, "Что положить в Git", 1.12, 2.48, 6.5, 0.4, 21, WHITE, True)
+    add_text(slide, "Состав репозитория", 1.12, 2.48, 6.5, 0.4, 21, WHITE, True)
     add_rich_text(slide, [
         ("• android/ — проект Android Studio", WHITE, False),
         ("• server/ — HTTPS-сервер и тесты", WHITE, False),
@@ -307,9 +306,9 @@ def create():
     link = add_text(slide, GIT_URL, 8.80, 3.20, 3.35, 0.95, 15, NAVY, True)
     if "<" not in GIT_URL:
         link.text_frame.paragraphs[0].runs[0].hyperlink.address = GIT_URL
-    add_text(slide, "Замените <ваш-логин> на реальную ссылку после создания репозитория.", 8.80, 4.35, 3.2, 0.78, 12, MUTED)
+    add_text(slide, "Исходный код, APK и документация доступны в репозитории.", 8.80, 4.35, 3.2, 0.78, 12, MUTED)
     rounded(slide, 1.55, 6.25, 10.2, 0.58, BLUE_LIGHT)
-    add_text(slide, "Главное: код + APK + презентация + ссылка на удалённый Git", 1.8, 6.43, 9.7, 0.22, 13, BLUE, True, PP_ALIGN.CENTER)
+    add_text(slide, "PC Remote — ваши файлы на ПК, доступ к ним с телефона", 1.8, 6.43, 9.7, 0.22, 13, BLUE, True, PP_ALIGN.CENTER)
 
     prs.save(OUT)
     print(OUT)
