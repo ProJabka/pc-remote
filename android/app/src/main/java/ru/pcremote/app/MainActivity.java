@@ -33,8 +33,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public final class MainActivity extends Activity {
-    private static final int BG = 0xFFF4F6FB, INK = 0xFF19243B, MUTED = 0xFF748097;
-    private static final int ACCENT = 0xFF4656D9, WHITE = Color.WHITE;
+    private static final int BG = 0xFFF7F8FC, INK = 0xFF18243D, MUTED = 0xFF6E7B95;
+    private static final int ACCENT = 0xFF4F46E5, WHITE = Color.WHITE;
     private static final int PICK_UPLOAD = 101, PICK_DOWNLOAD = 102;
     private final ExecutorService worker = Executors.newSingleThreadExecutor();
     private final List<Entry> entries = new ArrayList<>(), filtered = new ArrayList<>();
@@ -123,6 +123,7 @@ public final class MainActivity extends Activity {
         root = column();
         root.setBackgroundColor(BG);
         root.setPadding(dp(22), dp(16), dp(22), dp(16));
+        root.setClipToPadding(false);
         root.setOnApplyWindowInsetsListener((view, insets) -> {
             view.setPadding(dp(22) + insets.getSystemWindowInsetLeft(),
                     dp(16) + insets.getSystemWindowInsetTop(),
@@ -151,13 +152,16 @@ public final class MainActivity extends Activity {
         TextView intro = text("Документы, фото и рабочие файлы —\nпо защищённому соединению с вашим ПК.", 15, MUTED, false);
         intro.setLineSpacing(dp(4), 1);
         add(body, intro, 12);
-        add(body, text("01  Запустите start-server.cmd на ПК\n02  Подключитесь к одной Wi-Fi сети или VPN\n03  Введите данные из окна сервера", 13, MUTED, false), 24);
+        TextView steps = text("01  Запустите start-server.cmd на ПК\n02  Подключитесь к одной Wi-Fi сети или VPN\n03  Введите данные из окна сервера", 13, MUTED, false);
+        steps.setLineSpacing(dp(5), 1);
+        add(body, steps, 24);
 
         LinearLayout card = column();
         card.setPadding(dp(18), dp(20), dp(18), dp(20));
         card.setBackground(shape(WHITE, 22));
         add(body, card, 22);
         add(card, text("Подключение к ПК", 20, INK, true), 0);
+        add(card, text("Введите данные из окна сервера", 12, MUTED, false), 5);
         add(card, text("Адрес сервера", 12, MUTED, true), 20);
         address = input("https://192.168.1.10:8443",
                 InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
@@ -265,14 +269,14 @@ public final class MainActivity extends Activity {
         add(root, header, 0);
         LinearLayout shareCard = column();
         shareCard.setPadding(dp(18), dp(16), dp(18), dp(16));
-        shareCard.setBackground(shape(ACCENT, 20));
+        shareCard.setBackground(shape(ACCENT, 22));
         shareCard.addView(text("ОБЩАЯ ПАПКА", 10, 0xFFC7CEFF, true));
         add(shareCard, text(folder, 22, WHITE, true), 6);
         add(shareCard, text(readOnly ? "Только чтение · файлы остаются на ПК"
                 : "Ваши файлы — без облака и посредников", 12, 0xFFE0E4FF, false), 5);
         add(root, shareCard, 20);
         search = input("Поиск в текущей папке", InputType.TYPE_CLASS_TEXT);
-        search.setBackground(shape(WHITE, 14));
+        search.setBackground(shape(WHITE, 16));
         add(root, search, 18);
         search.addTextChangedListener(new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
